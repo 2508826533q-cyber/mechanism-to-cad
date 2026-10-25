@@ -1,0 +1,8 @@
+# Reuse an environment already containing these packages. Install only missing dependencies.
+cadgen[snapshot]==0.7.10
+numpy>=2.0
+matplotlib>=3.8
+Pillow>=10
+pywin32>=306; sys_platform == 'win32'
+# Development validation only; not required for runtime:
+# PyYAML>=6

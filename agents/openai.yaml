@@ -1,0 +1,6 @@
+interface:
+  display_name: "机械结构智能建模与运动仿真系统"
+  short_description: "分析机械图片与尺寸，生成可编辑零件、真实装配运动副和经过验证的运动仿真动画"
+  default_prompt: "使用 $mechanism-to-cad 分析这张机械图片，核对尺寸和运动关系，建立三维零件、装配体并生成运动仿真。"
+policy:
+  allow_implicit_invocation: true

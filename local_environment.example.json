@@ -1,0 +1,5 @@
+{
+  "python":"C:/path/to/python-environment/Scripts/python.exe",
+  "solidworks_install":"C:/Program Files/SOLIDWORKS Corp/SOLIDWORKS",
+  "note":"Copy to local_environment.json and replace with verified local paths, or run scripts/configure_environment.py. This file is only an example."
+}

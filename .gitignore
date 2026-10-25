@@ -1,0 +1,25 @@
+# Per-machine configuration and authentication material
+local_environment.json
+.env
+.env.*
+!.env.example
+*_token*
+
+# Python / local tools
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Generated local projects and reports
+projects/
+output/
+*.log
+environment_detected.json
+installation_report.json
+discovery_report.json
+~$*
+.DS_Store
+Thumbs.db

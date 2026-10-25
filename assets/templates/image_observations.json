@@ -1,0 +1,11 @@
+{
+  "reference_file":"reference.png",
+  "provenance":"Fill from actual visual inspection by Codex; not produced automatically by the scripts",
+  "parts":[{"id":"visible_part_01","name":"observed name","visible_geometry":[],"evidence":[],"status":"observed"}],
+  "joints":[{"id":"joint_A","type":"revolute","parts":["visible_part_01","visible_part_02"],"status":"hypothesis","confidence":0.5,"evidence":[]}],
+  "fixed_parts":[],
+  "driver":null,
+  "unknowns":["exact hole-center distances","hidden shafts and bearings"],
+  "confirmed_by_user":[],
+  "confidence":0.5
+}
