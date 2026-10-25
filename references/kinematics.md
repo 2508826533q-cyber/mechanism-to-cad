@@ -27,7 +27,7 @@ For d300, c250, swing40°, K1.2:
 |0 short coupler|83.60514904142842|151.17292022893315|150.48093989908722°|
 |1 long coupler|65.63218169655732|390.6459004035889|88.20637114241343°|
 
-Both have mirror assemblies. The user selected candidate0 for the initial acceptance on 2026-10-25. That selection is not a default for later users/projects.
+Both have mirror assemblies. Candidate0 was selected for the initial short-coupler acceptance; candidate1 was separately requested and verified as the long-coupler acceptance on 2026-10-25. The two explicit templates and examples are not defaults for later users/projects.
 
 Forward solve: B=(a cos q,a sin q). Let v=B−D, r=|v|, u=(c²−b²+r²)/(2r), h²=c²−u². Intersect circles centered at B and D; branch sign fixes the sign of the perpendicular component. Negative h² means closure impossible; h≈0 is a toggle where branch continuation is not guaranteed.
 

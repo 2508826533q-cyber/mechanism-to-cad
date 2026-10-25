@@ -1,0 +1,97 @@
+{
+  "status": "passed",
+  "solution": "long_coupler",
+  "reference_environment": "SOLIDWORKS 2025 SP5, cadgen 0.7.10, Python 3.11, Windows",
+  "lengths_mm": {
+    "ground": 300.0,
+    "crank": 65.63218169655732,
+    "coupler": 390.6459004035889,
+    "rocker": 250.0
+  },
+  "design": {
+    "swing_deg": 40.0,
+    "K": 1.2000000000000002,
+    "theta_deg": 16.363636363636374,
+    "rocker_upper_extremes_deg": [
+      68.20637114241343,
+      108.20637114241343
+    ],
+    "extreme_crank_deg": [
+      226.9442845089127,
+      30.580648145276307
+    ],
+    "mirror_equivalent": true,
+    "timing_definition": "K=longer/shorter crank-time interval at constant speed"
+  },
+  "audit": {
+    "samples": 1441,
+    "full_turn_margin_mm": 93.72191789985379,
+    "full_turn_possible": true,
+    "unreachable_input_angles_deg": [],
+    "toggle_count": 0,
+    "max_closure_error_mm": 1.7053025658242404e-13,
+    "max_step_rocker_deg": 0.10481280865221265,
+    "min_transmission_angle_deg": 34.9095036782038,
+    "planar_mobility": 1,
+    "revolute_joint_count": 4,
+    "independent_drives": 1
+  },
+  "native_mate_count": 7,
+  "native_mate_error_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "native_measured_rpm": 50.00000000000002,
+  "native_max_closure_error_mm": 7.03496939733596e-07,
+  "native_pose_samples": 32,
+  "native_reopen_errors": 0,
+  "native_reopen_warnings": 0,
+  "native_cached_replay_samples": 3,
+  "motion_data_rows": 901,
+  "video": {
+    "stream": {
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "30/1",
+      "duration": "30.000000",
+      "nb_frames": "900"
+    },
+    "full_decode_passed": true,
+    "distinct_decoded_frames": true,
+    "pose_source": "closed loop motion_frames.csv"
+  },
+  "interference": {
+    "method": "separated Z bounding intervals; invariant under planar rotations, valid for full continuous motion",
+    "intervals_mm": [
+      [
+        0.0,
+        8.0
+      ],
+      [
+        12.0,
+        20.0
+      ],
+      [
+        24.0,
+        32.0
+      ],
+      [
+        36.0,
+        46.0
+      ]
+    ],
+    "min_clearance_mm": 4.0,
+    "failures": []
+  },
+  "limits": [
+    "No force/stress/print-strength analysis; pins and fasteners are not included",
+    "Image interpretation is agent-assisted, not an independent vision model in these Python scripts",
+    "Numerical angular derivatives have finite-difference error, especially near endpoints"
+  ],
+  "automated_unit_tests": 16
+}

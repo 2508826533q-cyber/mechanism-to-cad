@@ -22,7 +22,7 @@ Use millimeters and the explicit schema in [kinematics](references/kinematics.md
 
 `core.synthesize(ground, rocker, swing, K)` returns all distinct nondegenerate crank-rocker length candidates found by the analytic construction, with verification. Show all candidates and ask the user to select when there is more than one. Do not choose candidate zero automatically. A mirror choice does not select which named stroke is faster; record direction, mounting and timing convention separately.
 
-The supplied acceptance case has **two** length solutions, not a unique design. The included acceptance template records the user's explicit short-coupler selection; do not reuse that choice as a universal default. Rounded prior lengths must pass the current input tolerances before being accepted.
+The supplied acceptance case has **two** length solutions, not a unique design. `acceptance_short.json` and `acceptance_long.json` record explicitly requested example choices; do not reuse either as a universal default. Both examples have separate native verification results and motion previews. Rounded prior lengths must pass the current input tolerances before being accepted.
 
 `scripts/analyze_mechanism.py` builds the topology and resolved parameters; `scripts/solve_kinematics.py` solves circle intersections with a fixed branch, reports full-turn feasibility, singularities, transmission angle and geometric closure, and exports trajectories and numerical angular derivatives. For restricted input motion, explicitly set `require_full_turn=false` and limit the requested input angle/time; native constant-speed full-turn acceptance is still separate. The current native workflow is intended for nonsingular full-turn input.
 

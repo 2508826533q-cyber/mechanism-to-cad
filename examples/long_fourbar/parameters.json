@@ -1,0 +1,28 @@
+{
+  "mechanism_type": "four_bar",
+  "units": "mm",
+  "lengths": {
+    "ground": 300,
+    "rocker": 250
+  },
+  "design": {
+    "swing_deg": 40,
+    "K": 1.2,
+    "candidate_index": 1
+  },
+  "branch": 1,
+  "simulation": {
+    "rpm": 50,
+    "duration_s": 30,
+    "dt_s": 0.03333333333333333,
+    "initial_deg": 45,
+    "direction": 1
+  },
+  "assumptions": [
+    "User requested the long-coupler solution on 2026-10-25",
+    "A=(0,0), D=(300,0), upper circle-intersection branch; mirror equivalent is available",
+    "K is longer/shorter stroke time; faster named stroke unspecified",
+    "Frame width30/thickness8; crank/coupler width20/thickness8; rocker width30/thickness10; holes10mm",
+    "Four main links only; no load/material strength claim; shafts and fasteners separate"
+  ]
+}

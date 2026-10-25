@@ -3,6 +3,20 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from core import *
 class KinematicsTests(unittest.TestCase):
+    def test_long_template_full_motion(self):
+        source=Path(__file__).resolve().parents[1]/'assets/templates/acceptance_long.json'
+        config,f,synthesis=parameters(read(source))
+        self.assertEqual(config['design']['candidate_index'],1)
+        self.assertAlmostEqual(f.crank,65.63218169655732,places=9)
+        self.assertAlmostEqual(f.coupler,390.6459004035889,places=9)
+        self.assertAlmostEqual(f.extrema()['swing_deg'],40,places=9)
+        self.assertAlmostEqual(f.extrema()['K'],1.2,places=10)
+        rows=simulate(f,config['simulation'])
+        self.assertEqual(len(rows),901)
+        self.assertAlmostEqual(rows[-1]['crank_deg']-rows[0]['crank_deg'],25*360,places=8)
+        self.assertLess(max(x['closure_error_mm'] for x in rows),1e-8)
+        self.assertAlmostEqual(rows[0]['C_x_mm'],rows[-1]['C_x_mm'],places=8)
+        self.assertAlmostEqual(rows[0]['C_y_mm'],rows[-1]['C_y_mm'],places=8)
     def test_inverse_has_two_verified_solutions(self):
         result=synthesize(300,250,40,1.2);self.assertEqual(len(result['candidates']),2)
         for c in result['candidates']:

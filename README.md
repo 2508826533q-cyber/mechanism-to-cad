@@ -6,9 +6,10 @@
 
 **V1 完整验收范围是平面四杆机构 + SOLIDWORKS。** 视觉分析由 Codex 协助完成；脚本不会凭照片比例推断准确尺寸，也不会把独立旋转动画冒充机构仿真。
 
-![Four-bar acceptance preview](examples/short_fourbar/preview.png)
-
-[观看30秒运动演示](examples/short_fourbar/animation.mp4) · [验收摘要](examples/short_fourbar/validation_summary.json) · [参数示例](examples/short_fourbar/parameters.json)
+| 短连杆方案 | 长连杆方案 |
+|---|---|
+| ![Short-coupler four-bar](examples/short_fourbar/preview.png) | ![Long-coupler four-bar](examples/long_fourbar/preview.png) |
+| [30秒运动演示](examples/short_fourbar/animation.mp4) · [验收摘要](examples/short_fourbar/validation_summary.json) | [30秒运动演示](examples/long_fourbar/animation.mp4) · [验收摘要](examples/long_fourbar/validation_summary.json) |
 
 ## 功能
 
@@ -76,16 +77,22 @@ $skillDir = Join-Path $env:USERPROFILE '.agents\skills\mechanism-to-cad'
 
 模板中的短连杆方案是已选定的验收设计，不能作为所有项目的默认选择。详细输入格式和综合计算见[运动学说明](references/kinematics.md)。
 
+长连杆方案使用独立模板和新的输出目录：
+
+```powershell
+& "$skillDir\run.ps1" 'D:\Projects\LongCoupler' --parameters "$skillDir\assets\templates\acceptance_long.json"
+```
+
 ## 验收示例
 
 AD=300mm、CD=250mm、摆角40°、K=1.2，有两组有效的曲柄摇杆杆长，不是唯一解：
 
 | 方案 | AB / mm | BC / mm |
 |---|---:|---:|
-| 短连杆（本例选择） |83.60514904142842|151.17292022893315|
-| 长连杆 |65.63218169655732|390.6459004035889|
+| [短连杆示例](examples/short_fourbar/) |83.60514904142842|151.17292022893315|
+| [长连杆示例](examples/long_fourbar/) |65.63218169655732|390.6459004035889|
 
-两者还存在镜像装配。输入50RPM、30秒；已在参考Windows环境完成四个原生零件、七个真实配合、Motion Analysis及重开回放验证。视频为900帧/30FPS的闭环求解工程演示；原生Motion Analysis缓存另以25FPS验证。
+两者还存在镜像装配。两个示例分别以50RPM、30秒在参考Windows环境完成四个原生零件、七个真实配合、Motion Analysis及重开回放验证。视频均为900帧/30FPS的闭环求解工程演示；原生Motion Analysis缓存另以25FPS验证。两种方案的中位安装角不同，40°均指各自两个极限位置之间的总摆角，不能只替换旧装配中的杆长而保持旧配合位置。
 
 ![Angular motion curves](examples/short_fourbar/motion_curves.png)
 
@@ -99,7 +106,7 @@ AD=300mm、CD=250mm、摆角40°、K=1.2，有两组有效的曲柄摇杆杆长�
 python -m unittest discover -s tests -v
 ```
 
-15项自动测试覆盖两组综合解、尺寸矛盾、缺失条件、镜像、闭环、反向运动、分支连续性、另一组四杆尺寸、图片接口和失败输出。GitHub Actions仅运行数学/接口测试；不能替代安装了SOLIDWORKS的Windows本机端到端验收。
+16项自动测试覆盖两组综合解、长方案30秒完整求解、尺寸矛盾、缺失条件、镜像、闭环、反向运动、分支连续性、另一组四杆尺寸、图片接口和失败输出。GitHub Actions仅运行数学/接口测试；不能替代安装了SOLIDWORKS的Windows本机端到端验收。
 
 ## 当前边界
 
